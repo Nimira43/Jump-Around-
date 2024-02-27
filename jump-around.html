@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump Around!!!</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.7)),
+            url('./pexels-x-y-2403402.jpg') no-repeat center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 40px;
+        color: orangered;
+    }
+    #game {
+        width: 1000px;
+        height: 400px;
+        border: 1px dotted orangered;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 139, 0.521),
+            rgba(34, 139, 34, 0.552));
+    }
+    #character {
+        width: 40px;
+        height: 100px;
+        background: linear-gradient(
+            180deg,
+            orangered,
+            black);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        position: relative;
+        top: 300px;
+        left: 20px;
+    }
+    .animate {
+        animation: jump 1.5s infinite;
+    }
+    #block {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+            135deg,
+            darkgoldenrod,
+            darkred);
+        border-radius: 50%;
+        position: relative;
+        top: 260px;
+        left: 960px;
+        animation: block 2s infinite;
+    }
+    @keyframes block {
+        0% {
+            left: 960px;
+        }
+        100% {
+            left: -40px;
+        }
+    }
+    @keyframes jump {
+        0% {
+            top: 300px;
+        }
+        30% {
+            top: 200px;
+        }
+        70% {
+            top: 200px;
+        }
+        100% {
+            top: 300px;
+        }
+    }
+</style>
+<body>
+    <h1>Jump Around!!!</h1>
+    <div id="game">
+        <div id="character"></div>
+        <div id="block"></div>
+    </div>   
+</body>
+<script>
+    const char = document.getElementById('character')
+    const block = document.getElementById('block')
+    const jump = () => {
+        if (char.classList != 'animate') char.classList.add('animate')
+        char.classList.add('animate')
+        setTimeout(() => {
+            char.classList.remove('animate')
+        }, 1500)
+    }
+    const checkCol = setInterval(() => {
+        const charTop = parseInt(window.getComputedStyle(char).getPropertyValue('top'))
+        const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'))
+        if (blockLeft < 40 &&
+            blockLeft > 0 &&
+            charTop >= 260) {
+                alert('You Dead!!!')
+            }
+    }, 20)
+</script>
+</html>
