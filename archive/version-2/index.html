@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./assets/billy.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Jump Around</title>
+</head>
+<body>
+  <h1>Jump Around!!!</h1>
+  <div id="game">
+    <video id="bgVideo" autoplay muted loop>
+      <source src="./assets/bg-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div id="character"></div>
+    <div id="block"></div>
+  </div>
+  <div id="gameOverModal" class="modal">
+    <div class="modal-content">
+      <p>You Dead!!!</p>
+      <button id="restartBtn">Restart</button>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
