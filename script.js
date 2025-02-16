@@ -19,9 +19,19 @@ const createBlock = () => {
   return block
 }
 
-const randomiseBlockSpeed = () => {
-    const blockAnimation = `block ${Math.random() * 2 + 1.5}s infinite`;
-    block.style.animation = blockAnimation;
+const manageBlocks = () => {
+  const blocks = document.querySelectorAll('.block')
+  blocks.forEach(block => {
+    const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'))
+    if (blockLeft < -40) {
+      block.remove()
+    }
+  })
+  if (blocks.length < 4) {
+    const newBlock = createBlock()
+    setTimeout(() => manageBlocks(), 1000)
+  }
+  
 }
 
 document.addEventListener('keydown', (e) => {
