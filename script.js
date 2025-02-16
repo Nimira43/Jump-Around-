@@ -1,5 +1,7 @@
 const char = document.getElementById('character')
 const game = document.getElementById('game')
+const gameOverModal = document.getElementById('gameOverModal')
+const restartBtn = document.getElementById('restartBtn')
 
 const jump = () => {
   if (!char.classList.contains('animate')) {
@@ -19,7 +21,7 @@ const createBlock = () => {
 }
 
 const manageBlocks = () => {
-  const blocks = document.querySelectorAll('.block');
+  const blocks = document.querySelectorAll('.block')
   blocks.forEach(block => {
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'))
     if (blockLeft < -40) {
@@ -43,9 +45,19 @@ const checkCollision = setInterval(() => {
   blocks.forEach(block => {
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'))
     if (blockLeft < 40 && blockLeft > 0 && charTop >= 260) {
-      alert('You Dead!!!')
+      gameOver()
     }
   })
 }, 20)
+
+const gameOver = () => {
+  clearInterval(checkCollision)
+  gameOverModal.style.display = 'block'
+}
+
+restartBtn.addEventListener('click', () => {
+  gameOverModal.style.display = 'none'
+  location.reload()
+})
 
 setInterval(() => manageBlocks(), 1000)
