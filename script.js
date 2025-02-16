@@ -10,7 +10,16 @@ const jump = () => {
     }
 }
 
-const randomizeBlockSpeed = () => {
+const createBlock = () => {
+  const block = document.createElement('div')
+  block.classList.add('block')
+  block.style.animationDuration = `${Math.random() * 1.5 + 1.5}s`
+  block.style.animationDelay = `${Math.random() * 2}s`
+  game.appendChild(block)
+  return block
+}
+
+const randomiseBlockSpeed = () => {
     const blockAnimation = `block ${Math.random() * 2 + 1.5}s infinite`;
     block.style.animation = blockAnimation;
 }
@@ -19,7 +28,7 @@ document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') jump()
 })
 
-randomizeBlockSpeed()
+randomiseBlockSpeed()
 
 const checkCollision = setInterval(() => {
     const charTop = parseInt(window.getComputedStyle(char).getPropertyValue('top'))
