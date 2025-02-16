@@ -91,3 +91,40 @@ h1 {
     left: -40px;
   }
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: transparent;
+  margin: 15% auto;
+  padding: 20px;
+  border: 3px dotted #ff4500;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#restartBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: lighter;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#restartBtn:hover {
+  background-color: #cc3700;
+}
