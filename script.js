@@ -8,7 +8,7 @@ const jump = () => {
     char.classList.add('animate')
     setTimeout(() => {
       char.classList.remove('animate')
-    }, 1500)
+    }, 1000)
   }
 }
 
@@ -48,7 +48,7 @@ const checkCollision = setInterval(() => {
       gameOver()
     }
   })
-}, 20)
+}, 10)
 
 const gameOver = () => {
   clearInterval(checkCollision)
@@ -60,4 +60,4 @@ restartBtn.addEventListener('click', () => {
   location.reload()
 })
 
-setInterval(() => manageBlocks(), 1000)
+setInterval(() => manageBlocks(), 500)
